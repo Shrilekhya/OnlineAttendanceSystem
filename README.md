@@ -16,40 +16,40 @@ students present or absent for a course based on date, section, branch and year.
 Here are the images of the website :
 
 Home Page
-![ScreenShot](EPICS_img/home.png)
+![ScreenShot](EPICSimg/home.png)
 
  Faculty Login Page
- ![ScreenShot](EPICS_img/FacLogin.png)
+ ![ScreenShot](EPICSimg/FacLogin.png)
  
  Faculty Profile Page
- ![ScreenShot](EPICS_img/facProf.png)
+ ![ScreenShot](EPICSimg/facProf.png)
  
  Create Class Page
- ![ScreenShot](EPICS_img/CreateClass.png)
+ ![ScreenShot](EPICSimg/CreateClass.png)
  
  Manual Attendance Page
- ![ScreenShot](EPICS_img/ManAtt.png)
+ ![ScreenShot](EPICSimg/ManAtt.png)
  
  Attendance View Page
- ![ScreenShot](EPICS_img/ManViewAtt.png)
+ ![ScreenShot](EPICSimg/ManViewAtt.png)
  
  Upload Page
- ![ScreenShot](EPICS_img/Upload.png)
+ ![ScreenShot](EPICSimg/Upload.png)
  
  Recognized Faces
- ![ScreenShot](EPICS_img/RecognizedFace.png)
+ ![ScreenShot](EPICSimg/RecognizedFace.png)
  
  Attendance View Page
- ![ScreenShot](EPICS_img/UploadViewAtt.png)
+ ![ScreenShot](EPICSimg/UploadViewAtt.png)
  
  Student Login Page
- ![ScreenShot](EPICS_img/stuLog.png)
+ ![ScreenShot](EPICSimg/stuLog.png)
  
  Student Profile Page
- ![ScreenShot](EPICS_img/stuHome.png)
+ ![ScreenShot](EPICSimg/stuHome.png)
  
  Student Attendance Page
- ![ScreenShot](EPICS_img/stuRes.png)
+ ![ScreenShot](EPICSimg/stuRes.png)
  
  Here is the ER diagram for the database :
- ![ScreenShot](EPICS_img/ERD.png)
+ ![ScreenShot](EPICSimg/ERD.png)
