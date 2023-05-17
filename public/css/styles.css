@@ -1,0 +1,80 @@
+:root {
+    --gradient: linear-gradient(90deg, black, rgba(9, 138, 125, 0.602), black);
+  
+  }
+body{
+    text-align: center;
+    height: 100px;
+    background-color: black;
+    /* background-size: 300%;
+    background-image: var(--gradient);
+    animation: bg-animation 25s infinite; */
+}
+@keyframes bg-animation {
+    0% {background-position: left}
+    50% {background-position: right}
+    100% {background-position: left}
+}
+
+a{  
+    border: 2px solid white;
+    text-decoration: none;
+    border-radius: 40%;
+    padding: 3vh 4vw;
+    font-size: 3vh;
+    color:white
+}
+
+img{
+    align-items: center;
+    width: 20vw;
+    height: 30vh;
+}
+
+.title1{
+    color: white;
+    margin-top:10vh;
+    font-size: 5vh;
+}
+.title2{
+    color: white;
+    margin-top: 7vh;
+    font-size: 5vh;
+}
+.div1{
+    margin-top: 6vh;
+}
+.fun {
+    color: white;
+    border: 0;
+    cursor: pointer;
+    padding: .5em 1.25em;
+    background: linear-gradient(45deg,  rgb(33, 194, 178), black,rgb(33, 194, 178));
+    background-size: 300%;
+    background-position: left;
+    transition: background-position 350ms;
+  }
+  
+  .fun:hover {
+    background-position: right;
+  }
+#b1{
+    margin-right: 5vw;
+}
+#b2{
+    margin-left: 5vw;
+}
+/* .form1{
+    font-size: 3vh;
+    margin-top: 3vh;
+    margin-right: 2vw;
+}
+.ip1{
+    margin-left: 2vw;
+}
+.ip2{
+    margin-left: 1vw;
+}
+.ip4{
+    margin-left: 0.25vw;
+} */

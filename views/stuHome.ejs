@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles1.css">
+    <title>Student</title>
+ 
+</head>
+<body>
+    <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td><%=sName%></td>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>:</td>
+                            <td><%=sid%></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td><%=sEmail%></td>
+                        </tr>
+                        <tr>
+                            <td>Section</td>
+                            <td>:</td>
+                            <td><%=ssec%></td>
+                        </tr>
+                        <tr>
+                            <td>Year</td>
+                            <td>:</td>
+                            <td><%=syear%></td>
+                        </tr>
+                        <tr>
+                            <td>Courses</td>
+                            <td>:</td>
+                            <td><div id="outer">
+                            <% for(var i=0 ; i<sCourses.length ; i++ ){%>
+                            <!-- <td><a class="b2" id="/myattend" role="button"><%=sCourses[i]%></a></td> -->
+                            <a href="/myattend"><button class="myButton" type="submit"  value="<%=sCourses[i]%>"><%=sCourses[i]%></button></a><br><br>
+                            <%}%>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Elective</td>
+                            <td>:</td>
+                            <td><%=ele%></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/elective"><button class="myButton" type="submit"  value="Elective">Choose Elective</button></a><br><br>
+    </div>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+   
+    var buttons = document.querySelectorAll('.myButton');
+
+    // Loop through the array and attach the event listener to each button
+    for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function(event) {
+        var buttonValue = event.target.value;
+        $.ajax({
+        url: '/stuHome',
+        method: 'POST',
+        data: { buttonValue: buttonValue }
+        });
+    });
+    }
+    </script>
+</body>
+</html>

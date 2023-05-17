@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles3.css">
+    <title>Attendance</title>
+   
+</head>
+<body>
+
+    <h1>ATTENDANCE</h1>
+    <form id="att-form" >
+
+    <table id="my-table">
+      <tbody>
+        <tr>
+          <th>ClassID</th>
+          <th>Sid</th>
+          <th>IsPresent</th>
+          <th>IsAbsent</th>
+        </tr>
+        
+        <% for(var i=0 ; i<stu.length ; i++ ){%>
+            <tr>
+              <td><%=cls%></td>
+              
+              <td class="stude" ><%=stu[i]%></td>
+              <!-- <td class="stude" >name</td> -->
+              <td><input type="checkbox" class="myCheckbox" name="isPr" value="1"></td>
+              <td><input type="checkbox" class="myCheckbox" name="isAbs" value="0"></td>
+            </tr>
+            
+        <%}%>
+          
+      </tbody>
+     </table>
+     <!-- <a href="/viewAtt"><button type="submit">submit</button></a> -->
+     <input type="submit" value="Submit">
+  </form>
+    <!-- <a href="/viewAtt"><button class ="attButton" type="submit">View Attendance</button></a> -->
+    
+
+ 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ 
+  <script>
+  
+    var form = document.getElementById('att-form');
+
+    
+    form.addEventListener('submit', function(event) {
+    
+      var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+      
+      let checkedValues = [];
+     
+      for (var i = 0; i < checkboxes.length; i++) {
+        checkedValues.push(checkboxes[i].value);
+      }
+
+      const className = "stude" ;
+		  const values = [];
+		  $("#my-table td." + className).each(function() {
+			const value = $(this).text();
+			values.push(value);
+		  });
+      console.log(values);
+
+      
+      console.log("hii"+checkedValues);
+      
+      $.ajax({
+      method: 'POST',
+      url: '/attendance',
+      contentType: 'application/json',
+      data: JSON.stringify({ checkedValues: checkedValues , studId : values }),
+      success: function(response) {
+        console.log('POST request successful!');
+        console.log(response);
+        window.location.replace("/viewAtt");
+      },
+      error: function(xhr, status, error) {
+        console.log('POST request failed!');
+        console.log('Error: ' + error);
+      }
+    });
+     
+    });
+  </script>
+
+</body>
+</html>
+

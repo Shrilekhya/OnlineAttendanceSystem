@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>select course</title>
+    
+
+    
+</head>
+    <body>
+        <h1>WELCOME</h1>
+            <h2>Select your courses</h2>
+        <form action="" class="form">
+
+                  
+          <select name="course" >    
+             
+              <option value="Ele1">Elective1</option>
+              <option value="Ele2">Elective2</option>
+              <option value="Ele3">Elective3</option>
+              <option value="Ele4">Elective4</option>
+               
+          </select>
+          <a href="/student"><button class="btn" id="submitBtn">Submit</button></a>
+
+        </form>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+                const form = document.querySelector('.form');
+                const submitBtn = document.querySelector('#submitBtn');
+
+                submitBtn.addEventListener('click', (event) => {
+                    
+                    const formData = new FormData(form);
+                    const selectedCourse = formData.get('course');
+                    
+                    $.ajax({
+                        url: '/elective',
+                        method: 'POST',
+                        data: { selected: selectedCourse },
+                        success: function(response) {
+                            console.log('POST request successful!');
+                            console.log(response);
+                            window.location.replace("/student");
+                        }
+                    });
+                });
+        </script>
+   </body>
+    
+</html>

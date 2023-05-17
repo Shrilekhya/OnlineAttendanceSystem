@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles1.css">
+    <title>Teacher</title>
+</head>
+<body>
+    <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td><%=tName%></td>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>:</td>
+                            <td><%=tid%></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td><%=tEmail%></td>
+                        </tr>
+                        <tr>
+                        <td>Courses</td>
+                        <td>:</td>
+                        <td><div id="outer">
+                            <% for(var i=0 ; i<tCourse.length ; i++ ){%>
+                            <a href="/createclass"><button class="tButton" type="submit"  value="<%=tCourse[i]%>-<%=Sec[i]%>"><%=tCourse[i]%>-<%=Sec[i]%></button></a><br>
+                            <%}%>
+                            </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    var buttons = document.querySelectorAll('.tButton');
+
+    // Loop through the array and attach the event listener to each button
+    for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function(event) {
+        var buttonValue = event.target.value;
+        $.ajax({
+        url: '/teachHome',
+        method: 'POST',
+        data: { buttonValue: buttonValue }
+        });
+    });
+    }
+    </script>
+</body>
+</html>
+
