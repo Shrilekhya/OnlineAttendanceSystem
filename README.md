@@ -1,7 +1,7 @@
 # OnlineAttendanceSystem
 This Online Attendance System helps in easy attendance recording and tracking.
 
-For a demo video [Click Me!!]([https://pages.github.com/](https://youtu.be/wn6HWHA8JQk)
+For a demo video [Click Me!!](https://youtu.be/wn6HWHA8JQk)
 
 We know that Attendance Percentage is strictly observed by the Administration before they give students the
 permission to write the exams. Since it is a very important aspect there should be no mistakes in regarding to
