@@ -6,6 +6,10 @@ const path = require('path');
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mysql = require('mysql2');
+require('dotenv').config();
+
+const dbUsername = process.env.DB_USERNAME;
+const dbPassword = process.env.DB_PASSWORD;
 
 
 const { spawn } = require('child_process');
@@ -20,8 +24,8 @@ app.use(express.json());
 
 const pool = mysql.createPool({
     host: 'localhost',
-    user: 'root',
-    password: 'password',
+    user: dbUsername,
+    password: dbPassword,
     database: 'instituteDB'
 });
 
@@ -41,6 +45,7 @@ let tCSec =[];
 let attend=[];
 let att_names=[];
 let stu_ids=[];
+let dept;
 const date = new Date().toISOString().slice(0, 10);
 
 
@@ -221,10 +226,11 @@ app.post('/faceAtt', upload.single('image'), function(req, res) {
   pyScript.on('exit', function(code) {
     console.log('Python script exited with code', code);
     // res.send('File uploaded successfully');
-    pool.query('select classes.classID from teacher join classes on classes.Tid=teacher.Tid where classes.Cid=? and classes.Date=? and StartTime=? and EndTime=? and Section=?',[cid,date,stime,etime,tsec], function (err, rest , fields){
+    pool.query('select classes.classID, teacher.Dept from teacher join classes on classes.Tid=teacher.Tid where classes.Cid=? and classes.Date=? and StartTime=? and EndTime=? and Section=?',[cid,date,stime,etime,tsec], function (err, rest , fields){
       console.log(rest);
       idclass = rest[0].classID;
-      pool.query('select student.Sid from student join classes on student.Section=classes.Section where ClassID=?',[idclass],function(err,result,fields){
+      dept = rest[0].Dept;
+      pool.query('select student.Sid from student join classes on student.Section=classes.Section where ClassID=? and Branch=?',[idclass,dept],function(err,result,fields){
         if(err){
           console.log(err);
         }
